@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://maven.apache.org/POM/4.0.0"
+        xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>qrs-ddd-application</artifactId>
+    <packaging>jar</packaging>
+
+    <name>CQRS bootstrap application</name>
+    <description>Spring boot JAR application project</description>
+
+    <parent>
+        <groupId>org.dsinczak.boot</groupId>
+        <artifactId>cqrs-ddd</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+
+    <profiles>
+        <profile>
+            <id>env-dev</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <db.datasource.url>jdbc:h2:mem:testdb;MODE=MySQL;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+                </db.datasource.url>
+                <db.datasource.username>root</db.datasource.username>
+                <db.datasource.password></db.datasource.password>
+                <db.h2.console.enabled>true</db.h2.console.enabled>
+                <db.jpa.hibernate.ddl-auto>create-drop</db.jpa.hibernate.ddl-auto>
+            </properties>
+        </profile>
+        <profile>
+            <id>env-prod</id>
+            <properties>
+                <db.datasource.url>jdbc:mysql://127.0.0.1:3306/testdb</db.datasource.url>
+                <db.datasource.username>root</db.datasource.username>
+                <db.datasource.password>root</db.datasource.password>
+                <db.h2.console.enabled>false</db.h2.console.enabled>
+                <db.jpa.hibernate.ddl-auto>validate</db.jpa.hibernate.ddl-auto>
+            </properties>
+        </profile>
+    </profiles>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>
+                spring-boot-starter-aop
+            </artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>${project.parent.groupId}</groupId>
+            <artifactId>cqrs-ddd-common-module</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>${project.parent.groupId}</groupId>
+            <artifactId>sample-module</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+        <resources>
+            <resource>
+                <!-- Replaces placeholders in resources with POM properties values -->
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+    </build>
+</project>
