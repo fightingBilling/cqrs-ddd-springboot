@@ -10,8 +10,8 @@
     <version>0.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
 
-    <name>CQRS bootstrap main project</name>
-    <description>CQRS, DDD, Springboot project backbone </description>
+    <name>Main project</name>
+    <description>CQRS, DDD, Springboot project backbone</description>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -21,12 +21,14 @@
     </parent>
 
     <modules>
-        <module>application</module>
-        <module>common-api</module>
-        <module>common-module</module>
-        <module>.\sample\sample-module-api</module>
-        <module>.\sample\sample-module</module>
-        <module>.\sample\sample-module-it</module>
+        <module>.\common\api</module>
+        <module>.\common\module</module>
+        <module>.\common\sharedkernel</module>
+        <module>.\common\publishedlanguage</module>
+        <module>.\sample\api</module>
+        <module>.\sample\module</module>
+        <module>.\sample\it</module>
+        <module>.\application\jar</module>
     </modules>
 
     <properties>
