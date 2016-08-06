@@ -5,11 +5,11 @@
         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>sample-api</artifactId>
+    <artifactId>products-api</artifactId>
     <packaging>jar</packaging>
 
-    <name>Sample API</name>
-    <description>Sample use of cqrs-ddd backbone. Api project.</description>
+    <name>Products API</name>
+    <description>Products module. Api project.</description>
 
     <parent>
         <groupId>org.dsinczak.boot</groupId>

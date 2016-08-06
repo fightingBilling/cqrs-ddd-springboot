@@ -1,4 +1,4 @@
-package org.dsinczak.boot.sharedkernel.exception;
+package org.dsinczak.boot.common.cqrs.command.validation;
 
 /**
  * TODO: implement proper error container

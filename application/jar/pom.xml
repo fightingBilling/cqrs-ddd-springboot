@@ -20,7 +20,7 @@
 
     <profiles>
         <profile>
-            <id>env-dev</id>
+            <id>env-dev-h2</id>
             <activation>
                 <activeByDefault>true</activeByDefault>
             </activation>
@@ -34,7 +34,7 @@
             </properties>
         </profile>
         <profile>
-            <id>env-prod</id>
+            <id>env-dev-mysql</id>
             <properties>
                 <db.datasource.url>jdbc:mysql://127.0.0.1:3306/testdb</db.datasource.url>
                 <db.datasource.username>root</db.datasource.username>
@@ -71,7 +71,13 @@
 
         <dependency>
             <groupId>${project.parent.groupId}</groupId>
-            <artifactId>sample-module</artifactId>
+            <artifactId>orders-module</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>${project.parent.groupId}</groupId>
+            <artifactId>products-module</artifactId>
             <version>${project.version}</version>
         </dependency>
 

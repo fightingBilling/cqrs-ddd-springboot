@@ -5,11 +5,11 @@
         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>cqrs-ddd-published-language</artifactId>
+    <artifactId>cqrs-ddd-canonical-model</artifactId>
     <packaging>jar</packaging>
 
     <name>Published language</name>
-    <description>Application published language classes</description>
+    <description>Application canonical model classes</description>
 
     <parent>
         <groupId>org.dsinczak.boot</groupId>

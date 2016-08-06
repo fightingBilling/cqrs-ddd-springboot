@@ -5,11 +5,11 @@
         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>cqrs-ddd-shared-kernel</artifactId>
+    <artifactId>orders-api</artifactId>
     <packaging>jar</packaging>
 
-    <name>Shared kernel</name>
-    <description>Application shared kernel classes</description>
+    <name>Orders API</name>
+    <description>Orders module. Api project.</description>
 
     <parent>
         <groupId>org.dsinczak.boot</groupId>
@@ -20,9 +20,14 @@
 
     <dependencies>
         <dependency>
-            <groupId>${project.groupId}</groupId>
-            <artifactId>cqrs-ddd-common-module</artifactId>
+            <groupId>${project.parent.groupId}</groupId>
+            <artifactId>cqrs-ddd-common-api</artifactId>
             <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 

@@ -1,7 +1,7 @@
 package org.dsinczak.boot.common.controller;
 
 import org.dsinczak.boot.common.cqrs.annotation.CommandController;
-import org.dsinczak.boot.sharedkernel.exception.CommandValidationException;
+import org.dsinczak.boot.common.cqrs.command.validation.CommandValidationException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
@@ -19,18 +19,18 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 @ControllerAdvice(annotations = CommandController.class)
 public class CommandValidationExceptionHandler {
 
-	private static final Logger LOGGER = LoggerFactory.getLogger(CommandValidationExceptionHandler.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(CommandValidationExceptionHandler.class);
 
-		@ResponseStatus(HttpStatus.BAD_REQUEST)
-		@ExceptionHandler(BindException.class)
-		@ResponseBody
-		public CommandValidationError bindException(CommandValidationException validationException) {
-				final CommandValidationError commandValidationError = new CommandValidationError();
-			commandValidationError.setTest(validationException.getMessage());
-				// TODO CommandValidationError should carry required and needed information
-			LOGGER.debug("Handling bind exception {} for {}", validationException.toString(),
-						commandValidationError.toString());
-				return commandValidationError;
-		}
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ExceptionHandler(BindException.class)
+    @ResponseBody
+    public CommandValidationError bindException(CommandValidationException validationException) {
+        final CommandValidationError commandValidationError = new CommandValidationError();
+        commandValidationError.setTest(validationException.getMessage());
+        // TODO CommandValidationError should carry required and needed information
+        LOGGER.debug("Handling bind exception {} for {}", validationException.toString(),
+                commandValidationError.toString());
+        return commandValidationError;
+    }
 
 }

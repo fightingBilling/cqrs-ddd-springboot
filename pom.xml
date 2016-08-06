@@ -24,10 +24,16 @@
         <module>.\common\api</module>
         <module>.\common\module</module>
         <module>.\common\sharedkernel</module>
-        <module>.\common\publishedlanguage</module>
-        <module>.\sample\api</module>
-        <module>.\sample\module</module>
-        <module>.\sample\it</module>
+        <module>.\common\canonicalmodel</module>
+        <module>.\users\api</module>
+        <module>.\users\module</module>
+        <module>.\users\it</module>
+        <module>.\orders\api</module>
+        <module>.\orders\module</module>
+        <module>.\orders\it</module>
+        <module>.\products\api</module>
+        <module>.\products\module</module>
+        <module>.\products\it</module>
         <module>.\application\jar</module>
     </modules>
 
@@ -40,15 +46,15 @@
         <dependencies>
 
             <dependency>
-                <groupId>de.bankverlag.ibankonverter</groupId>
-                <artifactId>ibankonverter</artifactId>
-                <version>1.2.2.2</version>
-            </dependency>
-
-            <dependency>
                 <groupId>org.joda</groupId>
                 <artifactId>joda-money</artifactId>
                 <version>0.10.0</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.jadira.usertype</groupId>
+                <artifactId>usertype.core</artifactId>
+                <version>5.0.0.GA</version>
             </dependency>
 
             <dependency>
@@ -61,6 +67,12 @@
                 <groupId>org.apache.commons</groupId>
                 <artifactId>commons-lang3</artifactId>
                 <version>3.4</version>
+            </dependency>
+
+            <dependency>
+                <groupId>io.javaslang</groupId>
+                <artifactId>javaslang</artifactId>
+                <version>2.0.2</version>
             </dependency>
 
             <dependency>

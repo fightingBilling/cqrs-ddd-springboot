@@ -4,7 +4,7 @@ import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.dsinczak.boot.common.cqrs.annotation.CommandValidator;
 import org.dsinczak.boot.common.cqrs.command.CommandGateway;
-import org.dsinczak.boot.sharedkernel.exception.CommandValidationException;
+import org.dsinczak.boot.common.cqrs.command.validation.CommandValidationException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.validation.BindException;
